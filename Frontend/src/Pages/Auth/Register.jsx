@@ -15,8 +15,9 @@ function Register() {
   const navigate = useNavigate();
 async function registerApi(payload) {
   try {
-    const response = await authAxiosInstance.post('/co')
-    
+    const response = await authAxiosInstance.post('/company/', payload)
+    const data = response.data
+    alert(data.response.data.message)
   } catch (error) {
     alert("Registration failed. Please try again.");
   }
@@ -30,23 +31,23 @@ async function registerApi(payload) {
           Register
         </h2>
 
-        <form onSubmit={handleSubmit()} className="space-y-4">
+        <form onSubmit={handleSubmit(registerApi)} className="space-y-4">
 
           {/* Username */}
           <div>
             <label htmlFor="username" className="block text-sm mb-1">
-              User Name
+             User Name 
             </label>
             <input
               id="username"
               type="text"
               placeholder="Enter user name"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              {...register("username", { required: "User name is required" })}
+              {...register("name", { required: "User name is required" })}
             />
-            {errors.username && (
+            {errors.name && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.username.message}
+                {errors.name.message}
               </p>
             )}
           </div>

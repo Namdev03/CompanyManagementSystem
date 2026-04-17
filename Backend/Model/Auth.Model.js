@@ -6,7 +6,7 @@ const authSchema = new Schema({
         trim: true,
     },
     phone: {
-        type: Number,
+        type: String,
         unique: true,
         trim: true,
     },
@@ -22,7 +22,7 @@ const authSchema = new Schema({
     role: {
         type: String,
         enum: ["admin", "employee"],
-        default: "employee"
+     
     }
 
 }, {
