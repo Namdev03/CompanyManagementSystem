@@ -34,7 +34,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="text-center py-16 sm:py-20 md:py-24 px-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-          Employee Management Portal
+          Employee Management 
         </h2>
 
         <p className="text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
