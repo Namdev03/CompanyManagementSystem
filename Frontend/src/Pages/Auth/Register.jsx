@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import pagePath from "../../Router/pagePath";
 import { roleData } from "../../Data/roleData";
+import authAxiosInstance from "../../services/authAxiosInstance";
 
 function Register() {
   const {
@@ -12,16 +13,14 @@ function Register() {
   } = useForm();
 
   const navigate = useNavigate();
-
-  const onSubmit = (data) => {
-    // ====fetch prev data=====
-    let prevsData = JSON.parse(localStorage.getItem("userData")) || [];
-    let newData = [...prevsData, data];
-    // ====== set new data======
-    localStorage.setItem("userData", JSON.stringify(newData));
-    alert("Register successfully");
-    navigate(pagePath.LOGIN);
-  };
+async function registerApi(payload) {
+  try {
+    const response = await authAxiosInstance.post('/co')
+    
+  } catch (error) {
+    alert("Registration failed. Please try again.");
+  }
+}
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-500 p-4">
@@ -31,7 +30,7 @@ function Register() {
           Register
         </h2>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit()} className="space-y-4">
 
           {/* Username */}
           <div>
